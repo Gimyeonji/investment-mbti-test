@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎯 투자 유형 테스트</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; background-color: #ffe4e1; }
+        .container { max-width: 600px; margin: auto; padding: 20px; background: white; border-radius: 15px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); }
+        .question { margin: 15px 0; padding: 10px; background: #ffccd5; border-radius: 10px; }
+        .result { font-weight: bold; margin-top: 20px; font-size: 1.2em; }
+        .character-img { width: 200px; margin-top: 20px; display: none; }
+        button { background-color: #ff8fa3; border: none; padding: 10px 20px; font-size: 1em; border-radius: 10px; cursor: pointer; }
+        button:hover { background-color: #ff4f70; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>🎯 투자 유형 테스트</h2>
+        <form id="mbtiForm">
+            <script>
+                const questions = [
+                    "투자 아이디어를 주변 사람들과 적극적으로 공유하는 편이다. 🤝",
+                    "금융 뉴스나 커뮤니티에서 활발히 정보를 찾고 토론하는 걸 즐긴다. 📰",
+                    "새로운 투자 기회를 적극적으로 탐색하는 편이다. 🔍",
+                    "혼자 분석하기보다는 전문가의 의견을 참고하는 것이 편하다. 📢",
+                    "과거 데이터를 기반으로 투자 결정을 내리는 편이다. 📊",
+                    "시장 트렌드보다는 검증된 정보를 신뢰한다. 🔎",
+                    "미래의 가능성보다 현재의 실적을 중시한다. 📈",
+                    "새로운 투자 테마나 혁신적인 아이디어에 끌린다. 🚀",
+                    "투자 결정을 내릴 때 감정보다는 논리를 중시한다. 🧠",
+                    "기업의 윤리성이 투자 결정에 영향을 미친다. 💖",
+                    "손실이 나도 논리적으로 대응하는 편이다. 🤔",
+                    "돈보다는 내가 좋아하는 분야에 투자하는 것이 더 의미 있다고 생각한다. 🎨",
+                    "즉흥적인 투자 결정을 내릴 때가 많다. 🎲",
+                    "장기적인 투자 계획을 세우고 철저하게 실행하는 것을 선호한다. 📜",
+                    "시장이 급변하면 투자 전략을 유연하게 조정하는 편이다. 🌊",
+                    "수익 목표와 손절 라인을 미리 정해두는 편이다. 🎯",
+                    "철저한 분석 후 투자하지만, 직관적으로 베팅하는 경우도 있다. 🔮",
+                    "투자 성향을 바꾸기보다는 일관된 전략을 고수하는 편이다. 🔗",
+                    "위험을 감수하더라도 높은 수익을 노린다. 🚦",
+                    "안정적인 수익을 추구하는 것이 가장 중요하다. 🏦"
+                ];
+                let types = ["EI", "EI", "EI", "EI", "SN", "SN", "SN", "SN", "TF", "TF", "TF", "TF", "PJ", "PJ", "PJ", "PJ", "PJ", "PJ", "PJ", "PJ"];
+                
+                questions.forEach((q, i) => {
+                    document.write(`<div class="question" data-type="${types[i]}">${i + 1}. ${q}<br>
+                        <input type="radio" name="q${i+1}" value="${types[i][0]}4"> 매우 그렇다
+                        <input type="radio" name="q${i+1}" value="${types[i][0]}3"> 그렇다
+                        <input type="radio" name="q${i+1}" value="${types[i][1]}3"> 아니다
+                        <input type="radio" name="q${i+1}" value="${types[i][1]}4"> 전혀 아니다
+                    </div>`);
+                });
+            </script>
+            <button type="button" onclick="calculateMBTI()">결과 보기</button>
+        </form>
+        <div class="result" id="result"></div>
+        <img id="characterImg" class="character-img">
+    </div>
+</body>
+</html>
